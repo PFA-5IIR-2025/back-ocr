@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pytesseract
 from PIL import Image
 import os
 import re
 
 app = Flask(__name__)
-
+CORS(app)
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 @app.route('/ocr', methods=['POST'])

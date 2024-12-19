@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  ocr-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: ocr-api
+    ports:
+      - "8180:5000" 
+    volumes:
+      - ./storage:/app/storage 
+      - /tmp:/tmp              
+    environment:
+      - FLASK_ENV=production   
+    restart: always            
